@@ -53,7 +53,7 @@ class RolesController extends Controller
     
                //kalau ya maka akan membuat roles baru
                $data = Roles::create([
-                   'nama_roles' => $request->nama_role,
+                   'name_role' => $request->name_role,
                ]);
     
                //data akan di kirimkan dalam bentuk response list
@@ -107,7 +107,7 @@ class RolesController extends Controller
        {
            try {
                $validator = Validator::make($request->all(), [
-                   'nama_role' => 'required|string|max:255|unique:roles',
+                   'name_role' => 'required|string|max:255|unique:roles',
                ]);
     
                if ($validator->fails()) {
@@ -115,7 +115,7 @@ class RolesController extends Controller
                }
     
                $data = Roles::find($id);
-               $data->nama_role = $request->nama_role;
+               $data->name_role = $request->name_role;
                $data->save();
     
                $response = [
