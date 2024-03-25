@@ -11,19 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('seting_role', function (Blueprint $table) {
+        Schema::create('setting_roles', function (Blueprint $table) {
             $table->id();
-            $table->foreigId('Users_Id');
-            $table->foreigId('Roles_id');
+            $table->foreignId('users_id');
+            $table->foreignId('roles_id');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('seting_role');
-    }
+    
 };

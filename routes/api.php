@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\RolesController;
+use App\Http\Controllers\Api\SettingRolesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +35,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/search-user', [AuthController::class, 'search']);
 
    Route::resource('roles', RolesController::Class);
+
+   Route::resource('setting_roles',SettingRolesController::Class);
 });
