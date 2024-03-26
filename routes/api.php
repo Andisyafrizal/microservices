@@ -37,4 +37,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
    Route::resource('roles', RolesController::Class);
 
    Route::resource('setting_roles',SettingRolesController::Class);
+
+   Route::resource('profil_perusahaan', ProfilPerusahaanController::class);
 });
