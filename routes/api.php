@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Api\RolesController;
 use App\Http\Controllers\Api\SettingRolesController;
+use App\Http\Controllers\Api\ProfilPerusahaanController;
+use App\Http\Controllers\Api\AbsenController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,14 +31,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 });
 
-Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::post('/change-password', [AuthController::class, 'change_password']);
+Route::middleware(['auth:sanctum', 'Admin'])->prefix('admin')->group(function () {
     Route::post('/search-user', [AuthController::class, 'search']);
+    Route::resource('roles', RolesController::class);
+    Route::resource('setting_roles', SettingRolesController::class);
+    Route::resource('profil_perusahaan', ProfilPerusahaanController::class);
+    Route::resource('absen', AbsenController::class);
+});
 
-   Route::resource('roles', RolesController::Class);
-
-   Route::resource('setting_roles',SettingRolesController::Class);
-
-   Route::resource('profil_perusahaan', ProfilPerusahaanController::class);
+Route::middleware(['auth:sanctum', 'Pegawai'])->prefix('pegawai')->group(function () {
+    //
 });

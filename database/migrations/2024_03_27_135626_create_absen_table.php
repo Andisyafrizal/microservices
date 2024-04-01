@@ -11,16 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('setting_roles', function (Blueprint $table) {
+        Schema::create('absen', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id');
-            $table->foreignId('roles_id');
+            $table->text('lokasi_user');
+            $table->string('waktu_absen_masuk');
+            $table->string('waktu_absen_pulang');
+            $table->string('tanggal_hari_ini');
+            $table->string('status');
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('setting_roles');
+        Schema::dropIfExists('absen');
     }
 };
