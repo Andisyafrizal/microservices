@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama_perusahaan', length: 100);
             $table->text('deskripsi');
-            $table->text('lokasi');
+            $table->text('latitude');
+            $table->text('longitude');
             $table->string('jam_masuk', length: 100);
             $table->string('jam_pulang', length: 100);
             $table->text('image')->nullable();

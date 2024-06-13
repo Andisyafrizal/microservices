@@ -42,7 +42,8 @@ class ProfilPerusahaanController extends Controller
             $validator = Validator::make($request->all(), [
                 'nama_perusahaan' => 'required|string|max:100|unique:profil_perusahaan',
                 'deskripsi' => 'required',
-                'lokasi' => 'required',
+                'latitude' => 'required',
+                'longitude' =>'required',
                 'jam_masuk' => 'required',
                 'jam_pulang' => 'required',
             ]);
@@ -55,7 +56,8 @@ class ProfilPerusahaanController extends Controller
             //kalau ya maka akan membuat roles baru
             $data = ProfilPerusahaan::create([
                 'nama_perusahaan' => $request->nama_perusahaan,
-                'lokasi' => $request->lokasi,
+                'latitude' => $request->latitude,
+                'longitude' => $request->longitude,
                 'deskripsi' => $request->deskripsi,
                 'jam_masuk' => $request->jam_masuk,
                 'jam_pulang' => $request->jam_pulang,
@@ -132,7 +134,8 @@ class ProfilPerusahaanController extends Controller
             $data = ProfilPerusahaan::find($id);
             $data->nama_perusahaan = $request->nama_perusahaan;
             $data->deskripsi = $request->deskripsi;
-            $data->lokasi = $request->lokasi;
+            $data->latitude = $request->latitude;
+            $data ->longitude = $request->longitude;
             $data->jam_masuk = $request->jam_masuk;
             $data->jam_pulang = $request->jam_pulang;
             $data->save();

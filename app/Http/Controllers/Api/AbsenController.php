@@ -74,7 +74,7 @@ class AbsenController extends Controller
                 'users_id' => $request->users_id,
                 'lokasi_user' => $request->lokasi_user,
                 'waktu_absen_masuk' => $request->waktu_absen_masuk,
-                //'waktu_absen_pulang' => $request->waktu_absen_pulang,
+                'waktu_absen_pulang' => $request->waktu_absen_pulang,
                 'tanggal_hari_ini' => $request->tanggal_hari_ini,
                 'status' => $status,
             ]);
